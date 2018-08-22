@@ -1,0 +1,25 @@
+<h1>Shift Scheduler</h1>
+
+<form>
+  <div class="form-group">
+    <p *ngIf="!shifts">
+      <em>Loading...</em>
+    </p>
+    <table class='table' *ngIf="shifts">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Morning Slot</th>
+          <th>Afternoon Slot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of shifts">
+          <td>{{shift.date }}</td>
+          <td>{{ shift.morningSlot }}</td>
+          <td>{{ shift.afternoonSlot }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
