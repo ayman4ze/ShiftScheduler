@@ -146,19 +146,20 @@ namespace ShiftScheduler.Controllers
             }
             else
             {
+                //to span the schedule to start on the first working day of the upcoming week.
                 if (shifts[0].Date != upcomingWeekFirstDay)
                 {
-                    //to span the schedule to start on the first working day of the upcoming week.
                     var daysToAdd = (upcomingWeekFirstDay - shifts[0].Date).TotalDays;
                     if ((daysToAdd / 7) % 2 != 0)
                     {
                         for (int i = 0; i < shifts.Count; i++)
                         {
-                            if (i > shifts.Count / 2)
+                            if ((i) < shifts.Count / 2)
                                 shifts[i].Date = shifts[i].Date.AddDays(daysToAdd + 7);
                             else
                                 shifts[i].Date = shifts[i].Date.AddDays(daysToAdd - 7);
                         }
+                        shifts = shifts.OrderBy(e => e.Date).ThenBy(e => e.Slot).ToList();
                     }
                     else
                     {
