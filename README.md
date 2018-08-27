@@ -8,6 +8,7 @@ Install [.NET Core SDK](https://microsoft.com/net/core)
 Install SQL Server
 - Windows: SQL Express
 - macOS / Linux: [Docker](https://www.docker.com/get-started) Image
+
 Pull SQL Image from docker registry
 ```
 sudo docker pull microsoft/mssql-server-linux
